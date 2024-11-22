@@ -1,0 +1,118 @@
+.div,
+.div * {
+  box-sizing: border-box;
+}
+.div {
+  background: #393352;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.frame-1 {
+  background: linear-gradient(to left, #ffffff, #ffffff);
+  width: 630px;
+  height: 251px;
+  position: absolute;
+  left: calc(50% - 315px);
+  top: 241px;
+  overflow: hidden;
+}
+.unsplash-d-eg-e-mz-9394-o {
+  width: 589px;
+  height: 348px;
+  position: absolute;
+  left: 0px;
+  top: -11px;
+  object-fit: cover;
+}
+.word-friends {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - 196px);
+  top: 153px;
+}
+.log-in {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  position: absolute;
+  left: 325px;
+  top: 542px;
+}
+.password {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  position: absolute;
+  left: 325px;
+  top: 620px;
+}
+.rectangle-3358 {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 328px;
+  height: 48px;
+  position: absolute;
+  left: calc(50% - 143px);
+  top: calc(50% - -138px);
+}
+.rectangle-3359 {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 328px;
+  height: 48px;
+  position: absolute;
+  left: calc(50% - 143px);
+  top: calc(50% - -216px);
+}
+.forgot-password {
+  color: #d8cfcf;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: underline;
+  position: absolute;
+  left: 664px;
+  top: 682px;
+}
+.group-4 {
+  position: absolute;
+  inset: 0;
+}
+.frame-10 {
+  background: rgba(255, 255, 255, 0);
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 857px;
+  top: 521px;
+  overflow: hidden;
+}
+.ellipse-1 {
+  background: #ac46f0;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.log-in2 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - 33px);
+  top: calc(50% - 44px);
+}

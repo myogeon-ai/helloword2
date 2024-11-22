@@ -1,0 +1,59 @@
+<!DOCTYPE html>  
+<html lang="ko">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Word Friends</title>  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  
+    <script src="https://cdn.tailwindcss.com"></script>  
+</head>  
+<body class="bg-gray-100">  
+    <div class="container mx-auto px-4 py-8">  
+        <div class="text-center">  
+            <h1 class="text-4xl font-bold mb-4">Word Friends</h1>  
+            <h5 class="text-xl mb-8">AI 친구와 단어를 학습해보세요</h5>  
+            <h4 class="text-2xl mb-4">주제를 선택하세요</h4>  
+        </div>  
+
+        <!-- 주제 선택 -->  
+        <div class="grid grid-cols-5 gap-4 mb-8">  
+            <div class="topic-card" data-topic="School">  
+                <img src="{{ url_for('static', filename='images/School.png') }}" alt="School">  
+                <p>School</p>  
+            </div>  
+            <!-- 나머지 주제 카드들 -->  
+        </div>  
+
+        <!-- 캐릭터 선택 -->  
+        <div class="text-center mb-8">  
+            <h4 class="text-2xl mb-4">AI 친구를 선택하세요</h4>  
+            <div class="grid grid-cols-2 gap-4">  
+                <div class="character-card" data-gender="Boy">  
+                    <img src="{{ url_for('static', filename='images/boy.png') }}" alt="Boy">  
+                    <p>Boy</p>  
+                </div>  
+                <div class="character-card" data-gender="Girl">  
+                    <img src="{{ url_for('static', filename='images/girl.png') }}" alt="Girl">  
+                    <p>Girl</p>  
+                </div>  
+            </div>  
+        </div>  
+
+        <!-- 학습 섹션 -->  
+        <div class="learning-section">  
+            <div class="text-center mb-8">  
+                <h6 class="text-lg">듣고 따라 읽기</h6>  
+                <h2 class="text-3xl text-purple-500">Listen and Repeat</h2>  
+                <h6 class="text-lg">Play 버튼을 눌러 단어를 듣고</h6>  
+                <h6 class="text-lg">Mic 버튼을 눌러 음성을 녹음하세요</h6>  
+            </div>  
+
+            <div id="word-container" class="grid grid-cols-1 gap-4">  
+                <!-- 단어 카드들이 여기에 동적으로 추가됨 -->  
+            </div>  
+        </div>  
+    </div>  
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>  
+</body>  
+</html>

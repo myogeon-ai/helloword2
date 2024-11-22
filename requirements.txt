@@ -1,0 +1,5 @@
+Flask==2.0.1
+SpeechRecognition==3.8.1
+gTTS==2.2.3
+googletrans==4.0.0-rc1
+requests==2.26.0

@@ -1,0 +1,301 @@
+.div,
+.div * {
+  box-sizing: border-box;
+}
+.div {
+  background: #393352;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.ai {
+  color: #ffffff;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - 336px);
+  top: 258px;
+}
+.div2 {
+  color: #d9d6d6;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - 110px);
+  top: 388px;
+}
+.frame-2 {
+  width: 149px;
+  height: 124px;
+  position: absolute;
+  left: 228px;
+  top: 482px;
+  overflow: hidden;
+}
+.school-2602414-1 {
+  width: 139px;
+  height: 124px;
+  position: absolute;
+  left: calc(50% - 69.5px);
+  top: calc(50% - 62px);
+  object-fit: cover;
+}
+.frame-3 {
+  width: 149px;
+  height: 124px;
+  position: absolute;
+  left: 397px;
+  top: 482px;
+  overflow: hidden;
+}
+.frame-4 {
+  width: 149px;
+  height: 124px;
+  position: absolute;
+  left: 566px;
+  top: 482px;
+  overflow: hidden;
+}
+.livestock-3397536-1 {
+  width: 128px;
+  height: 124px;
+  position: absolute;
+  left: calc(50% - 61.5px);
+  top: calc(50% - 62px);
+  object-fit: cover;
+}
+.frame-5 {
+  width: 149px;
+  height: 124px;
+  position: absolute;
+  left: 735px;
+  top: 482px;
+  overflow: hidden;
+}
+.diet-706195-1 {
+  width: 129px;
+  height: 130px;
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  object-fit: cover;
+}
+.frame-6 {
+  width: 149px;
+  height: 124px;
+  position: absolute;
+  left: 904px;
+  top: 482px;
+  overflow: hidden;
+}
+.weather-app-7059294-1 {
+  width: 124px;
+  height: 124px;
+  position: absolute;
+  left: 13px;
+  top: 0px;
+  object-fit: cover;
+}
+.family-4542234-1 {
+  width: 137px;
+  height: 124px;
+  position: absolute;
+  left: 404px;
+  top: 482px;
+  object-fit: cover;
+}
+.school {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: absolute;
+  left: 249px;
+  top: 612px;
+}
+.family {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: absolute;
+  left: 419px;
+  top: 612px;
+}
+.animal {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: absolute;
+  left: 585px;
+  top: 612px;
+}
+.food {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: absolute;
+  left: 772px;
+  top: 612px;
+}
+.weather {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: absolute;
+  left: 911px;
+  top: 612px;
+}
+.home {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 1459px;
+  top: 48px;
+}
+.hello-maria {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: relative;
+}
+.group-138 {
+  width: 1119px;
+  height: 44px;
+  position: absolute;
+  left: 130px;
+  top: 50px;
+}
+.home2 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 17.78%;
+  height: 100%;
+  position: absolute;
+  right: 82.22%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.group-137 {
+  position: absolute;
+  inset: 0;
+}
+.today {
+  width: 5.45%;
+  height: 65.91%;
+  position: absolute;
+  right: 36.01%;
+  left: 58.53%;
+  bottom: 17.05%;
+  top: 17.05%;
+}
+.frame-136 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 65px;
+  height: 29px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.home3 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 5.81%;
+  height: 65.91%;
+  position: absolute;
+  right: 24.22%;
+  left: 69.97%;
+  bottom: 15.91%;
+  top: 18.18%;
+}
+.today2 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+}
+.group-136 {
+  position: absolute;
+  inset: 0;
+}
+.home4 {
+  width: 6.17%;
+  height: 65.91%;
+  position: absolute;
+  right: 12.87%;
+  left: 80.97%;
+  bottom: 14.2%;
+  top: 19.89%;
+}
+.home5 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.home6 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  right: 5.8%;
+  left: 5.8%;
+  width: 88.41%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+.log-out {
+  background: rgba(255, 255, 255, 0);
+  width: 5.72%;
+  height: 95.45%;
+  position: absolute;
+  right: 0%;
+  left: 94.28%;
+  bottom: 2.27%;
+  top: 2.27%;
+  overflow: hidden;
+}
+.lucide-log-out {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 20px;
+  top: 9px;
+  overflow: visible;
+}

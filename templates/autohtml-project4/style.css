@@ -1,0 +1,406 @@
+.div,
+.div * {
+  box-sizing: border-box;
+}
+.div {
+  background: #393352;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.group-10 {
+  position: absolute;
+  inset: 0;
+}
+.div2 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 703px;
+  top: 262px;
+}
+.group-9 {
+  width: 367px;
+  height: 215px;
+  position: static;
+}
+.frame-9 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 711px;
+  top: 328px;
+}
+.frame-14 {
+  background: #d1cece;
+  border-radius: 12px;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 35px;
+  position: relative;
+  overflow: hidden;
+}
+.apple {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 34px;
+  top: 3px;
+}
+.frame-13 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 711px;
+  top: 418px;
+}
+.bread {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 33px;
+  top: 3px;
+}
+.frame-11 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 711px;
+  top: 373px;
+}
+.banana {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 25px;
+  top: 3px;
+}
+.frame-142 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 711px;
+  top: 463px;
+}
+.cheese {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 29px;
+  top: 3px;
+}
+.frame-17 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 711px;
+  top: 508px;
+}
+.chicken {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 25px;
+  top: 3px;
+}
+.frame-10 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 954px;
+  top: 328px;
+}
+.carrot {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 31px;
+  top: 3px;
+}
+.frame-15 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 954px;
+  top: 418px;
+}
+.ice-cream {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 15px;
+  top: 3px;
+}
+.frame-12 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 954px;
+  top: 373px;
+}
+.pizza {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 36px;
+  top: 3px;
+}
+.frame-16 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 954px;
+  top: 463px;
+}
+.juice {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 39px;
+  top: 3px;
+}
+.frame-18 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 124px;
+  position: absolute;
+  left: 954px;
+  top: 508px;
+}
+.milk {
+  color: #050505;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 42px;
+  top: 3px;
+}
+.frame-19 {
+  background: #000000;
+  width: 500px;
+  height: 360px;
+  position: absolute;
+  left: 130px;
+  top: 223px;
+  overflow: hidden;
+}
+.frame-27 {
+  width: 500px;
+  height: 360px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.div3 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "YeonSung-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 118px;
+  top: 158px;
+}
+.group-138 {
+  width: 1119px;
+  height: 44px;
+  position: absolute;
+  left: 130px;
+  top: 50px;
+}
+.home {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 17.78%;
+  height: 100%;
+  position: absolute;
+  right: 82.22%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.hello-maria {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: relative;
+}
+.group-137 {
+  position: absolute;
+  inset: 0;
+}
+.today {
+  width: 5.45%;
+  height: 65.91%;
+  position: absolute;
+  right: 36.01%;
+  left: 58.53%;
+  bottom: 17.05%;
+  top: 17.05%;
+}
+.frame-136 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 65px;
+  height: 29px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.home2 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 5.81%;
+  height: 65.91%;
+  position: absolute;
+  right: 24.22%;
+  left: 69.97%;
+  bottom: 15.91%;
+  top: 18.18%;
+}
+.today2 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+}
+.group-136 {
+  position: absolute;
+  inset: 0;
+}
+.home3 {
+  width: 6.17%;
+  height: 65.91%;
+  position: absolute;
+  right: 12.87%;
+  left: 80.97%;
+  bottom: 14.2%;
+  top: 19.89%;
+}
+.home4 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.home5 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  right: 5.8%;
+  left: 5.8%;
+  width: 88.41%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+.log-out {
+  background: rgba(255, 255, 255, 0);
+  width: 5.72%;
+  height: 95.45%;
+  position: absolute;
+  right: 0%;
+  left: 94.28%;
+  bottom: 2.27%;
+  top: 2.27%;
+  overflow: hidden;
+}
+.lucide-log-out {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 20px;
+  top: 9px;
+  overflow: visible;
+}

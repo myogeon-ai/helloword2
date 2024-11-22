@@ -1,0 +1,443 @@
+/* 기존 CSS에 추가/수정할 부분 */  
+
+/* 주제 선택 그리드 컨테이너 */  
+.grid-cols-5 {  
+    grid-template-columns: repeat(5, minmax(160px, 1fr));  
+    gap: 1.5rem;  
+    max-width: 1200px;  
+    margin: 0 auto;  
+}  
+
+/* 주제 아이템 컨테이너 */  
+.topic-item {  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    max-width: 200px;  
+    margin: 0 auto;  
+}  
+
+/* 주제 이미지 컨테이너 */  
+.topic-image-container {  
+    width: 100%;  
+    aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */  
+    overflow: hidden;  
+    border-radius: 0.5rem;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+}  
+
+.topic-image-container img {  
+    width: 100%;  
+    height: 100%;  
+    object-fit: cover;  
+    transition: transform 0.3s ease;  
+}  
+
+/* AI 친구 선택 섹션 */  
+.character-item {  
+    max-width: 280px;  
+    margin: 0 auto;  
+}  
+
+.character-image-container {  
+    width: 100%;  
+    aspect-ratio: 3 / 4; /* 세로로 좀 더 긴 비율 */  
+    overflow: hidden;  
+    border-radius: 0.5rem;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+}  
+
+.character-image-container img {  
+    width: 100%;  
+    height: 100%;  
+    object-fit: cover;  
+}  
+
+/* 단어 카드 이미지 */  
+.word-card {  
+    max-width: 800px;  
+    margin: 0 auto;  
+}  
+
+.word-image-container {  
+    width: 100%;  
+    aspect-ratio: 4 / 3; /* 가로로 좀 더 긴 비율 */  
+    overflow: hidden;  
+    border-radius: 0.5rem;  
+}  
+
+.word-image {  
+    width: 100%;  
+    height: 100%;  
+    object-fit: cover;  
+}  
+
+/* 반응형 디자인 개선 */  
+@media (max-width: 1200px) {  
+    .grid-cols-5 {  
+        grid-template-columns: repeat(4, minmax(140px, 1fr));  
+    }  
+}  
+
+@media (max-width: 1024px) {  
+    .grid-cols-5 {  
+        grid-template-columns: repeat(3, minmax(140px, 1fr));  
+    }  
+}  
+
+@media (max-width: 768px) {  
+    .grid-cols-5 {  
+        grid-template-columns: repeat(2, minmax(140px, 1fr));  
+    }  
+    
+    .character-item {  
+        max-width: 220px;  
+    }  
+}  
+
+@media (max-width: 640px) {  
+    .grid-cols-5 {  
+        grid-template-columns: repeat(2, minmax(120px, 1fr));  
+        gap: 1rem;  
+    }  
+    
+    .topic-item {  
+        max-width: 160px;  
+    }  
+    
+    .character-item {  
+        max-width: 180px;  
+    }  
+    
+    .word-card .grid {  
+        grid-template-columns: 1fr;  
+    }  
+}  
+
+/* 호버 효과 개선 */  
+.topic-image-container:hover img,  
+.character-image-container:hover img {  
+    transform: scale(1.05);  
+}  
+
+/* 컨테이너 여백 조정 */  
+.container {  
+    padding: 1rem;  
+    max-width: 1400px;  
+    margin: 0 auto;  
+}  
+
+/* 섹션 간격 조정 */  
+.section-spacing {  
+    margin-bottom: 3rem;  
+}
+
+.topic-grid-container {  
+    max-width: 600px;  
+    margin: 0 auto;  
+    padding: 0 0.5rem; /* 패딩 축소 */  
+}  
+
+.grid-cols-5 {  
+    display: grid;  
+    grid-template-columns: repeat(5, 1fr);  
+    gap: 1rem; /* gap 크게 축소 (이전 3rem에서 1rem으로) */  
+    margin-bottom: 1rem; /* 하단 여백 축소 */  
+}  
+
+.topic-item {  
+    width: 100%;  
+    max-width: 100px;  
+    margin: 0 auto;  
+}  
+
+.topic-btn {  
+    font-size: 0.85rem;  
+    padding: 0.3rem 0.4rem; /* 버튼 좌우 패딩 축소 */  
+    margin-bottom: 0.3rem; /* 버튼 아래 여백 축소 */  
+}  
+
+.topic-image-container {  
+    width: 100%;  
+    aspect-ratio: 1;  
+    overflow: hidden;  
+    border-radius: 0.4rem; /* 모서리 둥글기 약간 축소 */  
+}  
+
+/* 반응형 디자인 수정 */  
+@media (max-width: 1024px) {  
+    .grid-cols-5 {  
+        gap: 0.8rem; /* 태블릿에서 간격 더 축소 */  
+    }  
+}  
+
+@media (max-width: 768px) {  
+    .grid-cols-5 {  
+        grid-template-columns: repeat(3, 1fr);  
+        gap: 0.6rem; /* 모바일에서 간격 더욱 축소 */  
+    }  
+}  
+
+@media (max-width: 640px) {  
+    .grid-cols-5 {  
+        grid-template-columns: repeat(2, 1fr);  
+        gap: 0.5rem;  
+    }  
+}
+
+
+
+.character-selection {  
+    max-width: 576px;  
+    margin: 0 auto;  
+    padding: 0 0.5rem;  
+}  
+
+.character-item {  
+    max-width: 240px; /* 캐릭터 이미지 최대 너비 제한 */  
+    margin: 0 auto;  
+}  
+
+.character-image-container {  
+    width: 100%;  
+    aspect-ratio: 3/4;  
+    overflow: hidden;  
+    border-radius: 0.5rem;  
+}  
+
+/* 반응형 조정 */  
+@media (max-width: 640px) {  
+    .character-selection {  
+        max-width: 400px;  
+    }  
+    
+    .character-item {  
+        max-width: 180px;  
+    }  
+    
+    .grid-cols-2 {  
+        gap: 2;  
+    }  
+}
+
+
+.sidebar {  
+    position: fixed;  
+    right: 0;  
+    top: 0;  
+    height: 100%;  
+    background-color: white;  
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);  
+    padding: 1rem;  
+    transition: all 0.3s ease;  
+    z-index: 50;  
+}  
+
+/* 반응형 사이드바 */  
+@media (min-width: 1024px) {  
+    .sidebar {  
+        width: 256px; /* 기본 너비 */  
+    }  
+}  
+
+@media (max-width: 1023px) {  
+    .sidebar {  
+        width: 220px;  
+    }  
+}  
+
+@media (max-width: 768px) {  
+    .sidebar {  
+        width: 180px;  
+        padding: 0.75rem;  
+    }  
+}  
+
+@media (max-width: 640px) {  
+    .sidebar {  
+        width: 160px;  
+        padding: 0.5rem;  
+    }  
+}  
+
+@media (max-width: 480px) {  
+    .sidebar {  
+        width: 140px;  
+    }  
+}
+
+/* 전체 레이아웃 컨테이너 */  
+.layout-container {  
+    width: 100%;  
+    max-width: 1400px;  
+    margin: 0 auto;  
+    padding: 1rem;  
+}  
+
+/* 상단 영역 */  
+.top-section {  
+    width: 100%;  
+    margin-bottom: 2rem;  
+}  
+
+/* 중단 영역 컨테이너 */  
+.main-content {  
+    display: flex;  
+    gap: 2rem;  
+    position: relative;  
+}  
+
+/* 좌측 메인 영역 (3/4) */  
+.main-left {  
+    flex: 3;  /* 3/4 비율 */  
+    max-width: 75%;  
+}  
+
+/* 우측 사이드바 (1/4) */  
+.sidebar {  
+    flex: 1;  /* 1/4 비율 */  
+    max-width: 25%;  
+    background-color: white;  
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);  
+    padding: 1rem;  
+    height: calc(100vh - 200px); /* 상단 여백 고려 */  
+    position: sticky;  
+    top: 20px;  
+}  
+
+/* 반응형 디자인 */  
+@media (max-width: 1024px) {  
+    .main-content {  
+        gap: 1.5rem;  
+    }  
+    
+    .main-left {  
+        flex: 2.5;  
+    }  
+    
+    .sidebar {  
+        flex: 1;  
+    }  
+}  
+
+@media (max-width: 768px) {  
+    .main-content {  
+        flex-direction: column;  
+    }  
+    
+    .main-left {  
+        max-width: 100%;  
+    }  
+    
+    .sidebar {  
+        max-width: 100%;  
+        position: relative;  
+        height: auto;  
+    }  
+}  
+
+/* topic-grid-container 수정 */  
+.topic-grid-container {  
+    width: 100%;  
+    max-width: 800px; /* 좌측 영역 내에서의 최대 너비 */  
+    margin: 0 auto;  
+}  
+
+/* 기존 스타일 유지하면서 조정 */  
+.grid-cols-5 {  
+    gap: 1rem;  
+}  
+
+.topic-item {  
+    max-width: 100px;  
+}  
+
+
+/* 기본 레이아웃 */  
+.main-content {  
+    display: flex;  
+    gap: 2rem;  
+    position: relative;  
+}  
+
+.main-left {  
+    flex: 3;  
+    max-width: 75%;  
+}  
+
+.sidebar {  
+    flex: 1;  
+    max-width: 25%;  
+    background-color: white;  
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);  
+    padding: 1rem;  
+    height: calc(100vh - 200px);  
+    position: sticky;  
+    top: 20px;  
+}  
+
+/* 반응형 디자인 수정 */  
+@media (max-width: 1024px) {  
+    .main-content {  
+        gap: 1.5rem;  
+    }  
+}  
+
+@media (max-width: 768px) {  
+    .main-content {  
+        flex-direction: column;  
+        gap: 2rem;  
+    }  
+    
+    .main-left {  
+        max-width: 100%;  
+    }  
+    
+    .sidebar {  
+        max-width: 100%;        /* 좌측 영역과 동일한 너비로 설정 */  
+        width: 100%;            /* 전체 너비 사용 */  
+        position: relative;     /* sticky 제거 */  
+        top: 0;  
+        height: auto;          /* 높이 자동 조정 */  
+        margin-top: 2rem;      /* 상단 여백 추가 */  
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 그림자 방향 수정 */  
+    }  
+}  
+
+@media (max-width: 640px) {  
+    .main-content {  
+        gap: 1.5rem;  
+    }  
+    
+    .sidebar {  
+        margin-top: 1.5rem;  
+        padding: 0.75rem;  
+    }  
+}  
+
+.topic-btn {  
+    cursor: pointer;  
+    transition: all 0.3s ease;  
+}  
+
+.topic-btn:hover {  
+    transform: translateY(-2px);  
+}  
+
+.topic-btn.active {  
+    background-color: rgb(49, 51, 63);  
+    color: white;  
+}  
+
+.topic-image-container {  
+    cursor: pointer;  
+    transition: all 0.3s ease;  
+}  
+
+.topic-image-container:hover {  
+    transform: translateY(-2px);  
+}  
+
+.topic-item {  
+    transition: all 0.3s ease;  
+}  
