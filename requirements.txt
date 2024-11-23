@@ -1,1 +1,8 @@
 Flask
+SpeechRecognition
+gTTS
+googletrans
+requests
+numpy
+sounddevice
+werkzeug
