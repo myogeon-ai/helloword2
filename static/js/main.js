@@ -102,21 +102,21 @@ class WordFriendsApp {
                 body: JSON.stringify({ id, password })  
             });
             
-            const data = await response.json();  
-            if (data.success) {  
+            const data = await response.json(); 
+            if (data.success) {
                 this.state.isLoggedIn = true;  
                 this.state.currentUser = data.user;  
                 
                 this.showResultRegistlog(data.user.nickname + '님 반갑습니다.!', true, 'login');
                 $('#auth-modal').addClass('hidden');  
-                this.updateLoginButton();  
-                this.showResult('로그인 성공!', true);  
+                this.updateLoginButton(data.user.nickname);  
+                this.showResultRegistlog('로그인 성공!', true, 'login');  
             } else {
-                this.showResult('로그인 실패: ' + data.message, false);  
+                this.showResultRegistlog('로그인 실패: ' + data.message, false, 'login');  
             }
-        } catch (error) { 
-            console.error('Login error:', error);  
-            this.showResult('로그인 중 오류가 발생했습니다.', false);  
+        } catch (error) {
+            console.error('Login error:', error); 
+            this.showResultRegistlog('로그인 중 오류가 발생했습니다.', false, 'login');  
         } finally {  
             this.hideLoading();
         }  
