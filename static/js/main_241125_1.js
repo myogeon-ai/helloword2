@@ -98,27 +98,25 @@ class WordFriendsApp {
                 method: 'POST',  
                 headers: {  
                     'Content-Type': 'application/json',  
-                },
+                },  
                 body: JSON.stringify({ id, password })  
-            });
-            
+            });  
+
             const data = await response.json();  
             if (data.success) {  
                 this.state.isLoggedIn = true;  
                 this.state.currentUser = data.user;  
-                
-                this.showResultRegistlog(data.user.nickname + '님 반갑습니다.!', true, 'login');
                 $('#auth-modal').addClass('hidden');  
                 this.updateLoginButton();  
                 this.showResult('로그인 성공!', true);  
-            } else {
+            } else {  
                 this.showResult('로그인 실패: ' + data.message, false);  
-            }
-        } catch (error) { 
+            }  
+        } catch (error) {  
             console.error('Login error:', error);  
             this.showResult('로그인 중 오류가 발생했습니다.', false);  
         } finally {  
-            this.hideLoading();
+            this.hideLoading();  
         }  
     }  
 
@@ -140,44 +138,27 @@ class WordFriendsApp {
             const data = await response.json();  
             if (data.success) {  
                 this.switchAuthTab('login');  
-                this.showResultRegistlog('회원가입 성공! 로그인해주세요.', true, 'register');  
+                this.showResult('회원가입 성공! 로그인해주세요.', true);  
             } else {  
-                this.showResultRegistlog('회원가입 실패: ' + data.message, false, 'register');  
+                this.showResult('회원가입 실패: ' + data.message, false);  
             }  
         } catch (error) {  
             console.error('Register error:', error);  
-            this.showResultRegistlog('회원가입 중 오류가 발생했습니다.', false, 'register');  
+            this.showResult('회원가입 중 오류가 발생했습니다.', false);  
         } finally {  
             this.hideLoading();  
         }  
     }  
 
-    updateLoginButton(nickname) {  
+    updateLoginButton() {  
         if (this.state.isLoggedIn) {  
-            // $('#login-btn').text(this.state.currentUser.nickname);  
-            $('#login-btn').text('로그아웃');  
-            $('#login_nickname').text(nickname + '님 반갑습니다.');
+            $('#login-btn').text(this.state.currentUser.nickname);  
         } else {  
             $('#login-btn').text('로그인');  
         }  
     }  
 
 
-
-    // 결과 표시 메서드 수정  
-    showResultRegistlog(message, isSuccess = true, type ){ 
-
-        const resultContainer = $('#' + type + '-message'); 
-
-        resultContainer.html(message);  
-        resultContainer.removeClass('result-success result-error');  
-        resultContainer.addClass(isSuccess ? 'result-success' : 'result-error');  
-        
-        // 결과 표시 애니메이션  
-        resultContainer.css('animation', 'none');  
-        resultContainer[0].offsetHeight; // reflow  
-        resultContainer.css('animation', isSuccess ? 'popIn 0.5s ease' : 'shake 0.5s ease');  
-    }  
 
 
     async initialize() {  
