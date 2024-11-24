@@ -65,10 +65,10 @@ TEMP_DIR.mkdir(exist_ok=True)
 # cur = db.cursor()
 
 # # # local
-engine = sa.create_engine("postgresql://admin:1234@localhost/test")
+# engine = sa.create_engine("postgresql://admin:1234@localhost/test")
 
 # # vercel
-# engine = sa.create_engine("postgresql://neondb_owner:Wcid23lFsHTK@ep-blue-lab-a1gjolcg-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require")
+engine = sa.create_engine("postgresql://neondb_owner:Wcid23lFsHTK@ep-blue-lab-a1gjolcg-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require")
 
 
 
@@ -117,7 +117,6 @@ def login():
 
     # if check_password_hash(user['password_hash'], password):
     if q_val[0]== password:
-        print(q_val[1], '===========================')
         return jsonify({  
             'success': True,  
             'user': {  
