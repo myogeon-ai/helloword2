@@ -28,20 +28,18 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from difflib import SequenceMatcher
 
 
+import sqlalchemy as sa
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine
+
 ###########################################
 # python -m pip freeze > requirements.txt
+# pip list --format=freeze > requirements.txt
+# pip install -r requirements.txt
 ###########################################
 
 
-###########################################
-# db conn info
-###########################################
-db = psycopg2.connect(dbname='test',
-                      user='admin',
-                      host='localhost',
-                      password='123!@#4$',
-                      port=5432)
-cur = db.cursor()
+
 
 
 app = Flask(__name__)  
@@ -54,6 +52,27 @@ TEMP_DIR.mkdir(exist_ok=True)
 
 
 
+
+###########################################
+# db conn info
+###########################################
+# # # local
+# db = psycopg2.connect(dbname='test',
+#                       user='admin',
+#                       host='localhost',
+#                       password='123!@#4$',
+#                       port=5432)
+# cur = db.cursor()
+
+# # # local
+# engine = sa.create_engine("postgresql://admin:1234@localhost/test")
+
+# # vercel
+engine = sa.create_engine("postgresql://neondb_owner:Wcid23lFsHTK@ep-blue-lab-a1gjolcg-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require")
+
+
+
+
 users = {}  
 
 @app.route('/api/register', methods=['POST'])  
@@ -63,20 +82,19 @@ def register():
     password = data.get('password')  
     nickname = data.get('nickname')  
 
-
-    exec_sel_query = "SELECT user_pwd, user_nick FROM user_info where user_id = '"+ user_id + "';"
-    cur.execute(exec_sel_query)  # 쿼리 실행
-    q_val = cur.fetchone()
+    with engine.connect() as conn:
+        cur = conn.exec_driver_sql("SELECT * FROM user_info where user_id = '" + user_id + "' ")
+        q_val = cur.fetchone()
 
     if q_val != None:
         print(q_val)
         return jsonify({'success': False, 'message': '이미 존재하는 아이디입니다.'})  
 
     # password = generate_password_hash(password)
-    exec_ins_query = "INSERT INTO user_info (user_id, user_pwd, user_nick) VALUES ('" + user_id + "', '" + password + "', '" + nickname + "')"
-
-    cur.execute(exec_ins_query)
-    db.commit()
+    
+    with engine.begin() as conn:
+        conn.execute(sa.text("INSERT INTO user_info (user_id, user_pwd, user_nick) VALUES ('" + user_id + "', '" + password + "', '" + nickname + "')"))
+    
 
     return jsonify({'success': True})  
 
@@ -86,11 +104,11 @@ def login():
     user_id = data.get('id')  
     password = data.get('password')
     # password = generate_password_hash(password)
-    exec_sel_query = "SELECT user_pwd, user_nick FROM user_info where user_id = '"+ user_id + "';"
 
-    cur.execute(exec_sel_query)  # 쿼리 실행
-    q_val = cur.fetchone()
 
+    with engine.connect() as conn:
+        cur = conn.exec_driver_sql("SELECT * FROM user_info where user_id = '" + user_id + "' ")
+        q_val = cur.fetchone()
 
     if q_val == None:
         return jsonify({'success': False, 'message': '존재하지 않는 아이디입니다.'})  
