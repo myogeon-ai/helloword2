@@ -1,6 +1,23 @@
-from flask import Flask, render_template, request, jsonify, session, send_file  
-import random  
+# pip install flask
+# pip install flask-requests
+from flask import Flask, render_template, request, jsonify, session
+
+# pip install SpeechRecognition
 import speech_recognition as sr  
+# import SpeechRecognition as sr 
+
+import random 
+
+# pip install python-Levenshtein
+import Levenshtein  
+
+# pip install psycopg2
+# pip install psycopg2-binary==2.9.10
+# # pip install pycopy-aifc
+# pip install standard-aifc
+import psycopg2
+
+# pip install gTTS    
 from gtts import gTTS  
 from googletrans import Translator  
 import os  
@@ -8,9 +25,28 @@ import tempfile
 from pathlib import Path  
 import json  
 from werkzeug.security import generate_password_hash, check_password_hash  
+from difflib import SequenceMatcher
+
+
+###########################################
+# python -m pip freeze > requirements.txt
+###########################################
+
+
+###########################################
+# db conn info
+###########################################
+db = psycopg2.connect(dbname='test',
+                      user='admin',
+                      host='localhost',
+                      password='123!@#4$',
+                      port=5432)
+cur = db.cursor()
+
 
 app = Flask(__name__)  
 app.secret_key = 'your_secret_key_here'  # 실제 운영 환경에서는 더 복잡한 키를 사용하세요  
+app.secret_key = os.urandom(24)
 
 # 임시 파일을 저장할 디렉토리 생성  
 TEMP_DIR = Path(tempfile.gettempdir()) / "word_friends"  
@@ -38,24 +74,39 @@ def register():
     return jsonify({'success': True})  
 
 @app.route('/api/login', methods=['POST'])  
-def login():  
+def login():
     data = request.get_json()  
     user_id = data.get('id')  
-    password = data.get('password')  
+    password = data.get('password')
 
-    if user_id not in users:  
+    print(data)
+    print(user_id)
+    print(password)
+
+    exec_sel_query = "SELECT user_pwd, user_nick FROM user_info where user_id = '"+ user_id + "';"
+    print(exec_sel_query)
+
+    cur.execute(exec_sel_query)  # 쿼리 실행
+    q_val = cur.fetchone()
+    print(q_val)
+
+
+    if q_val == None:
+        print('a') 
         return jsonify({'success': False, 'message': '존재하지 않는 아이디입니다.'})  
 
-    user = users[user_id]  
-    if check_password_hash(user['password_hash'], password):  
+    # user = users[user_id]
+    # if check_password_hash(user['password_hash'], password):
+    if q_val[0]== password:
+        print('b') 
         return jsonify({  
             'success': True,  
             'user': {  
                 'id': user_id,  
-                'nickname': user['nickname']  
-            }  
-        })  
-    
+                'nickname': q_val[1]
+            }
+        })
+    print('c')
     return jsonify({'success': False, 'message': '비밀번호가 일치하지 않습니다.'})
 
 
@@ -374,6 +425,41 @@ def get_score():
         'score': session.get('score', 0),  
         'total_attempts': session.get('total_attempts', 0)  
     })  
+@app.route('/api/check-answer', methods=['POST'])  
+def check_answer():  
+    data = request.get_json()  
+    user_answer = data.get('userAnswer', '').lower().strip()  
+    current_word = data.get('currentWord', '').lower().strip()  
+    
+    # 발음 유사도 검사 (0.85 이상이면 정답으로 간주)  
+    similarity = SequenceMatcher(None, user_answer, current_word).ratio()  
+    is_correct = similarity >= 0.85  
+
+    # 정답 체크 결과 반환  
+    return jsonify({  
+        'isCorrect': is_correct,  
+        'similarity': similarity,  
+        'correctPronunciation': current_word,  
+        'userPronunciation': user_answer  
+    })  
+
+# 단어 데이터베이스 관련 코드도 추가  
+words_db = {  
+    'easy': ['cat', 'dog', 'bird', ...],  
+    'medium': ['elephant', 'giraffe', ...],  
+    'hard': ['pronunciation', 'vocabulary', ...]  
+}  
+
+@app.route('/api/get-word', methods=['GET'])  
+def get_word():  
+    difficulty = request.args.get('difficulty', 'easy')  
+    word = random.choice(words_db[difficulty])  
+    return jsonify({  
+        'word': word,  
+        'difficulty': difficulty  
+    }) 
+
 
 if __name__ == '__main__':  
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=9900, debug=True)
+    # app.run(host='192.168.219.101', port=5000, debug=True)

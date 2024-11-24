@@ -100,22 +100,27 @@ class WordFriendsApp {
                     'Content-Type': 'application/json',  
                 },  
                 body: JSON.stringify({ id, password })  
-            });  
-
+            });
+            
             const data = await response.json();  
             if (data.success) {  
+                console.log('aaaaaaa')
                 this.state.isLoggedIn = true;  
                 this.state.currentUser = data.user;  
                 $('#auth-modal').addClass('hidden');  
                 this.updateLoginButton();  
                 this.showResult('로그인 성공!', true);  
-            } else {  
+            } else {
+                console.log('bbbbb')  
+                console.log(data.message)  
                 this.showResult('로그인 실패: ' + data.message, false);  
-            }  
-        } catch (error) {  
+            }
+        } catch (error) { 
+            console.log('ccccc')   
             console.error('Login error:', error);  
             this.showResult('로그인 중 오류가 발생했습니다.', false);  
         } finally {  
+            console.log('ddddd')  
             this.hideLoading();  
         }  
     }  
@@ -604,36 +609,78 @@ class WordFriendsApp {
         }  
     }  
 
-    // 음성 인식 결과 처리  
-    handleSpeechResult(result) {  
-        const userAnswer = result.toLowerCase().trim();  
-        const isCorrect = this.checkAnswer(userAnswer);  
+    // // 음성 인식 결과 처리  
+    // handleSpeechResult(result) {  
+    //     const userAnswer = result.toLowerCase().trim();  
+    //     const isCorrect = this.checkAnswer(userAnswer);  
         
-        if (isCorrect) {  
-            this.showResult('정답입니다! 🎉', true);  
-            // 잠시 후 새로운 단어 가져오기  
-            setTimeout(() => this.getNewWord(), 1500);  
-        } else {  
-            this.showResult('다시 시도해보세요 😅', false);  
+    //     if (isCorrect) {  
+    //         this.showResult('정답입니다! 🎉', true);  
+    //         // 잠시 후 새로운 단어 가져오기  
+    //         setTimeout(() => this.getNewWord(), 1500);  
+    //     } else {  
+    //         this.showResult('다시 시도해보세요 😅', false);  
+    //     }  
+    // }  
+
+    // // 정답 체크  
+    // checkAnswer(userAnswer) {  
+    //     const isCorrect = userAnswer === this.state.currentWord.toLowerCase();  
+        
+    //     this.state.totalWords++;  
+    //     if (isCorrect) {  
+    //         this.state.correctWords++;  
+    //         this.state.streak++;  
+    //         this.state.bestStreak = Math.max(this.state.streak, this.state.bestStreak);  
+    //     } else {  
+    //         this.state.streak = 0;  
+    //     }  
+        
+    //     this.updateStatistics();  
+    //     return isCorrect;  
+    // }  
+    // 음성 인식 결과 처리  
+    async handleSpeechResult(result) {  
+        const userAnswer = result.toLowerCase().trim();  
+        
+        try {  
+            this.showLoading();  
+            const response = await fetch('/api/check-answer', {  
+                method: 'POST',  
+                headers: {  
+                    'Content-Type': 'application/json',  
+                },  
+                body: JSON.stringify({  
+                    userAnswer: userAnswer,  
+                    currentWord: this.state.currentWord  
+                })  
+            });  
+
+            const data = await response.json();  
+            
+            if (data.isCorrect) {  
+                this.state.correctWords++;  
+                this.state.streak++;  
+                this.state.bestStreak = Math.max(this.state.streak, this.state.bestStreak);  
+                this.showResult('정답입니다! 🎉', true);  
+                setTimeout(() => this.getNewWord(), 1500);  
+            } else {  
+                this.state.streak = 0;  
+                this.showResult(`틀렸습니다. 정확한 발음: ${data.correctPronunciation}`, false);  
+            }  
+
+            this.state.totalWords++;  
+            this.updateStatistics();  
+
+        } catch (error) {  
+            console.error('Error checking answer:', error);  
+            this.showResult('오류가 발생했습니다.', false);  
+        } finally {  
+            this.hideLoading();  
         }  
     }  
 
-    // 정답 체크  
-    checkAnswer(userAnswer) {  
-        const isCorrect = userAnswer === this.state.currentWord.toLowerCase();  
-        
-        this.state.totalWords++;  
-        if (isCorrect) {  
-            this.state.correctWords++;  
-            this.state.streak++;  
-            this.state.bestStreak = Math.max(this.state.streak, this.state.bestStreak);  
-        } else {  
-            this.state.streak = 0;  
-        }  
-        
-        this.updateStatistics();  
-        return isCorrect;  
-    }  
+    // checkAnswer 메서드는 제거 (백엔드로 이동)
 }  
 
 // 앱 초기화  
