@@ -9,7 +9,7 @@ import speech_recognition as sr
 import random 
 
 # pip install python-Levenshtein
-import Levenshtein  
+# import Levenshtein  
 
 # pip install psycopg2
 # pip install psycopg2-binary==2.9.10
